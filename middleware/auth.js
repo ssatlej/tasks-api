@@ -6,6 +6,7 @@ import pool from "../database/index.js";
 const auth = async (req, res, next) => {
     if(NODE_ENV !== 'production'){
       req.user.id = req?.body?.user || 1
+      next()
     }
     const token = req.cookies.token;
     if (!token) {
